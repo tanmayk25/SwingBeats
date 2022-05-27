@@ -1,0 +1,146 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<section class="explore-work" id="explore" style="margin-top: 20px;">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+                  </div>
+              </div>
+          </div>
+              <section class="explore-work" id="explore">
+                    <div class="container expanded">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-heading">
+                                    <h2>He who has health has hope<br><em>and he who has hope, has everything</em>.</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="right-content">
+                                    <ul>
+                                        <li>
+                                            <h4>Heart Rate</h4>
+                                            <div class="chartHeart">
+                                               <canvas class="heartRate" id="heartRate"></canvas>
+                                            </div>
+                                        </li>
+                                            <h4>Calories</h4>
+                                            <div class="chartCalories">
+                                               <canvas class="Calories" id="Calories"></canvas>
+                                            </div>
+                                            
+                                        </li>
+                                        <li>
+                                            <h4>Steps</h4>
+                                            <div class="chartSteps">
+                                               <canvas class="Steps" id="Steps" ></canvas>
+                                            </div>
+                                        </li>
+                                             <script>
+                                                    const labels = [ {% for value in created %} '{{ value }}', {% endfor %}]
+                                                    const data = {
+                                                      labels: labels,
+                                                      datasets: [{
+                                                        label: 'Heart Rate',
+                                                        backgroundColor: 'rgb(255, 99, 132)',
+                                                        borderColor: 'rgb(255, 99, 132)',
+                                                        data: [{% for value in heart_rate %} '{{ value }}', {% endfor %}],
+                                                      }]
+                                                    };
+                                                    const data2 = {
+                                                      labels: labels,
+                                                      datasets: [{
+                                                        label: 'Calories',
+                                                        backgroundColor: 'rgb(255, 99, 132)',
+                                                        borderColor: 'rgb(255, 99, 132)',
+                                                        data: [{% for value in calories %} '{{ value }}', {% endfor %}],
+                                                      }]
+                                                    };
+                                                    const data3 = {
+                                                      labels: labels,
+                                                      datasets: [{
+                                                        label: 'Steps',
+                                                        backgroundColor: 'rgb(255, 99, 132)',
+                                                        borderColor: 'rgb(255, 99, 132)',
+                                                        data: [{% for value in steps %} '{{ value }}', {% endfor %}],
+                                                      }]
+                                                    };                               
+                                                      const config = {
+                                                      type: 'line',
+                                                      data: data,
+                                                      options: {
+                                                        scales: {
+                                                            x: {
+                                                              ticks: {
+                                                                //option 2, use callback to change labels to empty string
+                                                                callback: () => ('')
+                                                              }
+                                                            }
+                                                          } 
+                                                      }
+                                                    };
+                                                      const config2 = {
+                                                      type: 'line',
+                                                      data: data2,
+                                                      options: {
+                                                        scales: {
+                                                            x: {
+                                                              ticks: {
+                                                                //option 2, use callback to change labels to empty string
+                                                                callback: () => ('')
+                                                              }
+                                                            }
+                                                          } 
+                                                      }
+                                                    };
+                                                    const config3 = {
+                                                      type: 'line',
+                                                      data: data3,
+                                                      options: {
+                                                        scales: {
+                                                            x: {
+                                                              ticks: {
+                                                                //option 2, use callback to change labels to empty string
+                                                                callback: () => ('')
+                                                              }
+                                                            }
+                                                          } 
+                                                      }
+                                                    };
+                                                    const chartHeart = new Chart(
+                                                        document.getElementById('heartRate'),
+                                                        config
+                                                    );
+                                                    const chartCalories = new Chart(
+                                                        document.getElementById('Calories'),
+                                                        config2
+                                                    );
+                                                    const chartSteps= new Chart(
+                                                        document.getElementById('Steps'),
+                                                        config3
+                                                    );                                                                          
+                                                </script>
+                                      </ul>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                  </section>
+                </div>
+  <br>
+    <script>
+            document.getElementById("navbar").style.background = "#000000";
+            document.getElementById("overview").style.color = "#FFFFFF";
+            document.getElementById("dashboard").style.color = "#FFFFFF";
+            document.getElementById("details").style.color = "#FFFFFF";
+            document.getElementById("login").style.color = "#FFFFFF";
+            document.getElementById("logout").style.color = "#FFFFFF";
+            document.getElementById("buyButton").style.color = "#FFFFFF";
+    </script>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div style="position: relative; top:0; left: 0;" class="col-12">
+      <img src="../../static/images/banner.jpeg" class="cover">
+      <img src="../../static/images/beat.png" class="beat">
+      <img src="../../static/images/swingbeats.png" class="words">
+      <div class = "overlay"></div>
+    </div>
+
+      <div class = "text-box">
+        <p class = "firstp">
+          Dance studios are losing $71.5 billion yearly from students signing up for classes and dropping within the same month. Learning to dance poses a huge learning curve, and currently, dancers aren’t practicing enough outside of class, to overcome it.
+        </p>
+      </div>
+
+      <div class = "picture1-row">
+        <p class = "secondp">
+          That’s where <span class = "word"><strong>swing</strong><i>beats</i></span> comes in. <strong>Created by dancers, for dancers.</strong>
+        </p>
+        <img src = "../../static/images/hardware.png" class = "pic1">
+      </div>
+
+
+      <div class = "picture2-row">
+        <img src = "../../static/images/fastfoot.png" class = "pic2">
+        <p class = "thirdp">
+          We’ve created <span class = "purple"><strong>Haptic Feedback Ankle Bracelets (HFABs)</strong></span> that vibrate on the user's foot to signal dancers when to do a certain step.
+        </p>
+      </div>
+
+      <div class = "picture3-row">
+        <p class = "fourthp">
+          These HFABs also provide both dancers and instructors with <span class = "purple"><strong>feedback regarding accuracy</strong></span> and <span class = "purple"><strong>practice time</strong></span>.
+        </p>
+        <img src = "../../static/images/app.png" class = "pic3">
+      </div>
+
+      <center><img src = "../../static/images/fastfeet.png" class = "pic4"></center>
+
+      <strong><p class = "fifthp">In bridging the intersection between technology and dance, we provide our customers with a model that gives them unprecedented insight into their students’ progress.</p></strong>
+
+      <center><button class="buynow"> Buy now </button></center>
+    <script>
+        window.onscroll = function() { scrollFunction()};
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("navbar").style.background = "#000000";
+            document.getElementById("overview").style.color = "#FFFFFF";
+            document.getElementById("dashboard").style.color = "#FFFFFF";
+            document.getElementById("details").style.color = "#FFFFFF";
+            document.getElementById("login").style.color = "#FFFFFF";
+            document.getElementById("logout").style.color = "#FFFFFF";
+            document.getElementById("buyButton").style.color = "#FFFFFF";
+          } else {
+            document.getElementById("navbar").style.background = "none";
+            document.getElementById("overview").style.color = "#000000";
+            document.getElementById("dashboard").style.color = "#000000";
+            document.getElementById("login").style.color = "#000000";
+            document.getElementById("details").style.color = "#000000";
+            document.getElementById("logout").style.color = "#000000";
+            document.getElementById("buyButton").style.color = "#000000";
+
+          }
+
+      }
+    </script>
+
+{% endblock %}
